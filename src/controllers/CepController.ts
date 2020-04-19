@@ -4,6 +4,11 @@ import { Logradouro } from "../schemas/Logradouro";
 class CepController {
   public async findByCep(req: Request, res: Response) {
     await Logradouro.findOne({ cep: req.params.cep })
+      .select("-id")
+      .populate(
+        "bairro",
+        "bairro bairro_sem_acento latitude longitude -id_bairro -_id"
+      )
       .populate(
         "cidade",
         "cidade cidade_sem_acento latitude longitude -id_cidade -_id"
