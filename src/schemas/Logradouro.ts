@@ -48,12 +48,14 @@ LogradouroSchema.virtual('bairro', {
   ref: 'Bairro',
   localField: 'bairro_id',
   foreignField: 'id_bairro',
+  justOne: true
 });
 
 LogradouroSchema.virtual('cidade', {
   ref: 'Cidade',
   localField: 'cidade_id',
   foreignField: 'id_cidade',
+  justOne: true
 });
 
 export const Logradouro = mongoose.model('Logradouro', LogradouroSchema);
