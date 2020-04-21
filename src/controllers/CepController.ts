@@ -20,7 +20,7 @@ class CepController {
           return res.json(logradouro);
         }
 
-        return res.status(400).json({ error: "Cep não localizado." });
+        return res.status(404).json({ error: "Cep não localizado." });
       })
       .catch((error) => {
         console.log(error);
